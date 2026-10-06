@@ -1,0 +1,693 @@
+```css
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #14080c;
+    color: #f9e9e9;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: #e8a7b5;
+    color: #14080c;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.hearts-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    color: rgba(255, 180, 195, 0.5);
+    font-size: 18px;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #e9a4b5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f8e8eb;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e9a4b5;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 70px;
+
+    background:
+        radial-gradient(circle at 50% 40%, #54202f 0%, #2a1018 35%, #14080c 75%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(238, 172, 187, 0.15);
+    border-radius: 50%;
+    animation: pulseCircle 5s infinite ease-in-out;
+}
+
+@keyframes pulseCircle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #e5a3b4;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(65px, 10vw, 130px);
+    line-height: 0.85;
+    font-weight: 500;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+    color: #e7a4b5;
+}
+
+.heart-line {
+    margin: 35px 0;
+    color: #e6a4b4;
+    letter-spacing: 5px;
+}
+
+.hero-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #e8d4d8;
+}
+
+.anniversary-date {
+    margin: 35px auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.anniversary-date > span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 65px;
+    line-height: 0.8;
+    color: #e8a5b5;
+}
+
+.anniversary-date div {
+    text-align: left;
+    border-left: 1px solid rgba(232, 165, 181, 0.5);
+    padding-left: 15px;
+}
+
+.anniversary-date strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.anniversary-date small {
+    color: #d6a4ae;
+    letter-spacing: 4px;
+}
+
+.anniversary-text {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #18090d;
+    background: #e8a7b6;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.4s;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+    background: #f3c1cd;
+    box-shadow: 0 15px 40px rgba(232, 167, 182, 0.25);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c99da7;
+}
+
+.scroll-down div {
+    font-size: 20px;
+    margin-top: 5px;
+    animation: arrowMove 1.5s infinite;
+}
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.story-section {
+    padding: 130px 8%;
+    background: #f4e7e8;
+    color: #32141c;
+}
+
+.section-heading {
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 90px;
+}
+
+.section-heading p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #a45d6e;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 0.95;
+    font-weight: 500;
+}
+
+.section-heading h2 span {
+    font-style: italic;
+    color: #a45d6e;
+}
+
+
+/* TIMELINE */
+
+.timeline {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 45px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+.timeline-item.reverse {
+    grid-template-columns: 1fr 100px;
+}
+
+.timeline-item.reverse .timeline-number {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.timeline-item.reverse .timeline-content {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+}
+
+.timeline-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 70px;
+    color: #c994a0;
+    border-bottom: 1px solid #d7b5bc;
+    padding-bottom: 15px;
+}
+
+.timeline-content span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #a45d6e;
+}
+
+.timeline-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    max-width: 600px;
+    line-height: 1.8;
+    color: #674852;
+}
+
+
+/* =========================================
+   LOVE LETTER
+========================================= */
+
+.letter-section {
+    padding: 140px 20px;
+    background: #1a090e;
+}
+
+.letter-card {
+    max-width: 850px;
+    margin: auto;
+    padding: 75px 80px;
+    background: #f8edef;
+    color: #32141c;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.letter-card::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid #d9afb9;
+    pointer-events: none;
+}
+
+.letter-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #a45d6e;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 45px;
+}
+
+.letter-top span {
+    font-size: 20px;
+}
+
+.letter-card h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.letter-content {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+.letter-content p {
+    margin-bottom: 22px;
+}
+
+.special-line {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    color: #a45d6e;
+    margin: 40px 0 !important;
+}
+
+.love-ending {
+    font-size: 30px;
+    text-align: center;
+    color: #8d4b5e;
+    font-weight: 600;
+    margin-top: 40px;
+}
+
+.letter-signature {
+    margin-top: 45px;
+    text-align: right;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.letter-signature span {
+    color: #a45d6e;
+    font-size: 35px;
+}
+
+
+/* =========================================
+   NUMBERS
+========================================= */
+
+.numbers-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #e4b0bc;
+    color: #32141c;
+}
+
+.number-box {
+    padding: 80px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(50, 20, 28, 0.15);
+}
+
+.number-box:last-child {
+    border-right: none;
+}
+
+.number-box h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.number-box p {
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   FOREVER
+========================================= */
+
+.forever-section {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    background:
+        radial-gradient(circle at center, #54202f 0%, #240d15 50%, #14080c 100%);
+}
+
+.forever-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 8vw, 100px);
+    line-height: 0.9;
+    font-weight: 500;
+}
+
+.forever-content h2 span {
+    color: #e6a4b4;
+    font-style: italic;
+}
+
+.big-heart {
+    color: #e8a7b7;
+    font-size: 55px;
+    margin: 40px 0;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+}
+
+.forever-content > p:not(.small-title):not(.date-bottom) {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #e5cbd0;
+}
+
+.forever-content h3 {
+    margin-top: 35px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.date-bottom {
+    margin-top: 15px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #d39aa7;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 45px 20px;
+    background: #0d0508;
+    text-align: center;
+    color: #9c717a;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.footer-heart {
+    color: #e5a1b2;
+    font-size: 25px;
+    margin: 15px;
+}
+
+.copyright {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #65454d;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 22px 20px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero::before {
+        width: 320px;
+        height: 320px;
+    }
+
+    .hero-text {
+        font-size: 19px;
+    }
+
+    .story-section {
+        padding: 90px 25px;
+    }
+
+    .timeline-item,
+    .timeline-item.reverse {
+        display: block;
+        margin-bottom: 65px;
+    }
+
+    .timeline-number {
+        display: inline-block;
+        font-size: 55px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item.reverse .timeline-number {
+        display: inline-block;
+    }
+
+    .timeline-item.reverse .timeline-content {
+        text-align: left;
+    }
+
+    .timeline-content h3 {
+        font-size: 35px;
+    }
+
+    .letter-section {
+        padding: 80px 15px;
+    }
+
+    .letter-card {
+        padding: 55px 30px;
+    }
+
+    .letter-card h2 {
+        font-size: 38px;
+    }
+
+    .letter-content {
+        font-size: 20px;
+    }
+
+    .numbers-section {
+        grid-template-columns: 1fr;
+    }
+
+    .number-box {
+        padding: 45px 20px;
+        border-right: none;
+        border-bottom: 1px solid rgba(50, 20, 28, 0.15);
+    }
+
+    .number-box:last-child {
+        border-bottom: none;
+    }
+
+    .forever-section {
+        min-height: 80vh;
+    }
+}
+```
